@@ -1,0 +1,94 @@
+<section class="contact section">
+  <div class="container">
+    <h2 class="section-title">Get In Touch</h2>
+    
+    <div class="contact-grid">
+      <div class="contact-info">
+        <h3>Let's discuss your <br><span class="gold">next project.</span></h3>
+        <p>Whether it's a dream home or a major commercial development, Bashir Associates brings your vision to life with architectural mastery.</p>
+        
+        <div class="info-list">
+          <div class="info-item">
+            <span class="info-icon">📍</span>
+            <div>
+              <h4>Office Address</h4>
+              <p>45-B, Commercial Area, Phase 6, DHA, Lahore, Pakistan</p>
+            </div>
+          </div>
+          <div class="info-item">
+            <span class="info-icon">📞</span>
+            <div>
+              <h4>Call Us</h4>
+              <p>+92 42 3456 7890</p>
+            </div>
+          </div>
+          <div class="info-item">
+            <span class="info-icon">✉️</span>
+            <div>
+              <h4>Email Us</h4>
+              <p>info&#64;bashirassociates.com</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="contact-form-wrapper">
+        <form [formGroup]="contactForm" (ngSubmit)="onSubmit()" [class.success]="submitSuccess">
+          <div class="form-group" [class.error]="f['name'].touched && f['name'].invalid">
+            <label for="name">Full Name *</label>
+            <input type="text" id="name" formControlName="name" placeholder="John Doe">
+            @if (f['name'].touched && f['name'].invalid) {
+              <span class="error-msg">Please enter at least 3 characters.</span>
+            }
+          </div>
+
+          <div class="form-group" [class.error]="f['email'].touched && f['email'].invalid">
+            <label for="email">Email Address *</label>
+            <input type="email" id="email" formControlName="email" placeholder="john&#64;example.com">
+            @if (f['email'].touched && f['email'].invalid) {
+              <span class="error-msg">Please enter a valid email address.</span>
+            }
+          </div>
+
+          <div class="row">
+            <div class="form-group">
+              <label for="phone">Phone Number</label>
+              <input type="text" id="phone" formControlName="phone" placeholder="+92 ...">
+            </div>
+            <div class="form-group">
+              <label for="projectType">Project Type</label>
+              <select id="projectType" formControlName="projectType">
+                <option value="residential">Residential</option>
+                <option value="commercial">Commercial</option>
+                <option value="ongoing">Ongoing</option>
+                <option value="other">Other</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-group" [class.error]="f['message'].touched && f['message'].invalid">
+            <label for="message">Message *</label>
+            <textarea id="message" formControlName="message" rows="5" placeholder="Tell us about your project..."></textarea>
+            @if (f['message'].touched && f['message'].invalid) {
+              <span class="error-msg">Message must be at least 20 characters.</span>
+            }
+          </div>
+
+          <button type="submit" class="btn btn-gold btn-block" [disabled]="isSubmitting">
+            @if (isSubmitting) {
+              <span>Sending...</span>
+            } @else {
+              <span>Send Message</span>
+            }
+          </button>
+
+          @if (submitSuccess) {
+            <div class="success-banner">
+              Message sent successfully! We'll get back to you shortly.
+            </div>
+          }
+        </form>
+      </div>
+    </div>
+  </div>
+</section>

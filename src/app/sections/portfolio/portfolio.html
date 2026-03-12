@@ -1,0 +1,28 @@
+<section class="portfolio section">
+  <div class="container text-center">
+    <h2 class="section-title">Our Portfolio</h2>
+    <p class="section-subtitle">A collection of premier architectural landmarks crafted by Bashir Associates.</p>
+    
+    <div class="filter-buttons">
+      <button [class.active]="activeFilter === 'all'" (click)="setFilter('all')">All Projects</button>
+      <button [class.active]="activeFilter === 'residential'" (click)="setFilter('residential')">Residential</button>
+      <button [class.active]="activeFilter === 'commercial'" (click)="setFilter('commercial')">Commercial</button>
+      <button [class.active]="activeFilter === 'ongoing'" (click)="setFilter('ongoing')">Ongoing</button>
+    </div>
+
+    <div class="portfolio-grid">
+      @for (project of filteredProjects(); track project.id) {
+        <div class="project-card">
+          <div class="project-image">
+            <img [src]="project.image" [alt]="project.title">
+            <div class="project-overlay">
+              <span class="category-tag">{{ project.category }}</span>
+              <h3>{{ project.title }}</h3>
+              <button class="view-btn">View Details</button>
+            </div>
+          </div>
+        </div>
+      }
+    </div>
+  </div>
+</section>

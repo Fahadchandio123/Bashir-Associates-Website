@@ -1,0 +1,129 @@
+@import "../../../styles.scss";
+
+nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 25px 0;
+  z-index: 1000;
+  transition: var(--transition);
+  background: transparent;
+
+  &.scrolled {
+    padding: 15px 0;
+    background: var(--color-navy);
+    box-shadow: 0 10px 30px -10px rgba(2, 12, 27, 0.7);
+  }
+
+  .nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .logo {
+    font-family: var(--font-heading);
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--color-white);
+    cursor: pointer;
+    letter-spacing: 2px;
+
+    .gold {
+      color: var(--color-gold);
+      margin-left: 5px;
+    }
+  }
+
+  .nav-links {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+
+    a {
+      font-size: 0.85rem;
+      font-weight: 500;
+      color: var(--color-white);
+      cursor: pointer;
+      position: relative;
+
+      &::after {
+        content: '';
+        position: absolute;
+        bottom: -5px;
+        left: 0;
+        width: 0;
+        height: 2px;
+        background: var(--color-gold);
+        transition: var(--transition);
+      }
+
+      &:hover {
+        color: var(--color-gold);
+        &::after {
+          width: 100%;
+        }
+      }
+
+      &.nav-cta {
+        border: 1px solid var(--color-gold);
+        padding: 8px 16px;
+        border-radius: 4px;
+        color: var(--color-gold);
+
+        &:hover {
+          background: rgba(197, 160, 89, 0.1);
+        }
+
+        &::after {
+          display: none;
+        }
+      }
+    }
+  }
+
+  .hamburger {
+    display: none;
+    flex-direction: column;
+    gap: 6px;
+    cursor: pointer;
+
+    .line {
+      width: 25px;
+      height: 2px;
+      background: var(--color-gold);
+      transition: var(--transition);
+    }
+  }
+
+  @media (max-width: 768px) {
+    .nav-links {
+      position: fixed;
+      top: 0;
+      right: -100%;
+      width: 70%;
+      height: 100vh;
+      background: var(--color-navy-light);
+      flex-direction: column;
+      justify-content: center;
+      transition: var(--transition);
+      box-shadow: -10px 0 30px rgba(2, 12, 27, 0.5);
+
+      &.active {
+        right: 0;
+      }
+    }
+
+    .hamburger {
+      display: flex;
+      z-index: 1001;
+    }
+    
+    &.mobile-open .hamburger {
+      .line:nth-child(1) { transform: rotate(45deg) translate(5px, 6px); }
+      .line:nth-child(2) { opacity: 0; }
+      .line:nth-child(3) { transform: rotate(-45deg) translate(5px, -6px); }
+    }
+  }
+}

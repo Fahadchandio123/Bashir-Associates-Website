@@ -1,0 +1,22 @@
+<nav [class.scrolled]="isScrolled" [class.mobile-open]="isMobileMenuOpen">
+  <div class="nav-container container">
+    <div class="logo" (click)="scrollToSection('home')">
+      <span>BASHIR</span>
+      <span class="gold">ASSOCIATES</span>
+    </div>
+
+    <div class="nav-links" [class.active]="isMobileMenuOpen">
+      <a (click)="scrollToSection('home')">Home</a>
+      <a (click)="scrollToSection('about')">About</a>
+      <a (click)="scrollToSection('projects')">Projects</a>
+      <a (click)="scrollToSection('services')">Services</a>
+      <a (click)="scrollToSection('contact')" class="nav-cta">Get In Touch</a>
+    </div>
+
+    <div class="hamburger" (click)="toggleMobileMenu()">
+      <div class="line"></div>
+      <div class="line"></div>
+      <div class="line"></div>
+    </div>
+  </div>
+</nav>

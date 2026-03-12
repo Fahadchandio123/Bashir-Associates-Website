@@ -1,0 +1,170 @@
+@import "../../../styles.scss";
+
+.services {
+  background-color: var(--color-navy);
+
+  .corporate-services {
+    margin-bottom: 120px;
+  }
+
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 30px;
+
+    @media (max-width: 1200px) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    @media (max-width: 600px) {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  .service-card {
+    padding: 30px;
+    background: var(--color-navy-light);
+    border-radius: 8px;
+    height: 100%;
+    transition: var(--transition);
+    border-top: 2px solid transparent;
+
+    &:hover {
+      transform: translateY(-5px);
+      border-top-color: var(--color-gold);
+    }
+
+    h3 {
+      font-size: 1.25rem;
+      margin-bottom: 15px;
+      color: var(--color-white);
+    }
+
+    p {
+      font-size: 0.9rem;
+      color: var(--color-slate);
+      line-height: 1.5;
+    }
+  }
+
+  /* Boutique Section with Glassmorphism */
+  .boutique-services {
+    position: relative;
+    border-radius: 20px;
+    overflow: hidden;
+    padding: 80px 40px;
+    background: linear-gradient(135deg, rgba(28, 43, 65, 0.8) 0%, rgba(10, 25, 47, 0.9) 100%);
+    background-image: url('../../../assets/images/services-bg.png');
+    background-size: cover;
+    background-position: center;
+    box-shadow: 0 40px 100px -20px rgba(2, 12, 27, 0.7);
+
+    .boutique-bg {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(10, 25, 47, 0.6);
+      z-index: 1;
+    }
+
+    .boutique-content {
+      position: relative;
+      z-index: 2;
+    }
+
+    .boutique-header {
+      text-align: center;
+      max-width: 700px;
+      margin: 0 auto 60px;
+
+      .boutique-tag {
+        color: var(--color-gold);
+        font-size: 0.8rem;
+        text-transform: uppercase;
+        letter-spacing: 3px;
+        display: block;
+        margin-bottom: 15px;
+      }
+
+      h2 {
+        font-size: 3rem;
+        margin-bottom: 20px;
+        color: var(--color-white);
+      }
+
+      p {
+        color: var(--color-white);
+        opacity: 0.8;
+      }
+    }
+
+    .glass-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+
+      @media (max-width: 768px) {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .glass-card {
+      background: rgba(255, 255, 255, 0.03);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      padding: 50px 40px;
+      border-radius: 20px;
+      transition: all 0.5s cubic-bezier(0.2, 1, 0.3, 1);
+
+      &:hover {
+        background: rgba(255, 255, 255, 0.08);
+        transform: translateY(-10px);
+        border-color: var(--color-gold);
+        box-shadow: 0 20px 40px -10px rgba(197, 160, 89, 0.2);
+        
+        .glass-icon { transform: scale(1.1); color: var(--color-gold); }
+      }
+
+      .glass-icon {
+        font-size: 3rem;
+        margin-bottom: 25px;
+        display: block;
+        transition: var(--transition);
+      }
+
+      h3 {
+        font-size: 1.75rem;
+        margin-bottom: 15px;
+        color: var(--color-white);
+      }
+
+      p {
+        color: var(--color-white);
+        opacity: 0.7;
+        margin-bottom: 30px;
+      }
+
+      .feature-list {
+        li {
+          color: var(--color-white);
+          opacity: 0.9;
+          font-size: 0.9rem;
+          margin-bottom: 10px;
+          display: flex;
+          align-items: center;
+
+          &::before {
+            content: '•';
+            color: var(--color-gold);
+            font-weight: bold;
+            display: inline-block; 
+            width: 1em;
+            margin-right: 10px;
+          }
+        }
+      }
+    }
+  }
+}

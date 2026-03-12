@@ -1,0 +1,126 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&family=Playfair+Display:wght@400;700;900&display=swap');
+
+:root {
+  --color-navy: #0A192F;
+  --color-navy-light: #112240;
+  --color-gold: #C5A059;
+  --color-gold-hover: #D4AF37;
+  --color-slate: #8892B0;
+  --color-white: #E6F1FF;
+  --color-glass: rgba(10, 25, 47, 0.7);
+  --font-main: 'Montserrat', sans-serif;
+  --font-heading: 'Playfair Display', serif;
+  --transition: all 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--color-navy);
+  color: var(--color-slate);
+  font-family: var(--font-main);
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+  color: var(--color-white);
+  font-weight: 700;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+  transition: var(--transition);
+}
+
+ul {
+  list-style: none;
+}
+
+.section {
+  padding: 100px 10%;
+  @media (max-width: 768px) {
+    padding: 60px 5%;
+  }
+}
+
+.section-title {
+  font-size: 2.5rem;
+  margin-bottom: 50px;
+  position: relative;
+  display: inline-block;
+  
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 0;
+    width: 60px;
+    height: 4px;
+    background-color: var(--color-gold);
+  }
+}
+
+.btn {
+  padding: 12px 28px;
+  border-radius: 4px;
+  font-weight: 600;
+  cursor: pointer;
+  display: inline-block;
+  font-family: var(--font-main);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-size: 0.8rem;
+  transition: var(--transition);
+
+  &-gold {
+    background-color: var(--color-gold);
+    color: var(--color-navy);
+    border: 1px solid var(--color-gold);
+    
+    &:hover {
+      background-color: transparent;
+      color: var(--color-gold);
+    }
+  }
+
+  &-outline {
+    background-color: transparent;
+    color: var(--color-gold);
+    border: 1px solid var(--color-gold);
+    
+    &:hover {
+      background-color: rgba(197, 160, 89, 0.1);
+    }
+  }
+}
+
+.glass-card {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  padding: 30px;
+  transition: var(--transition);
+
+  &:hover {
+    transform: translateY(-5px);
+    border-color: var(--color-gold);
+  }
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
