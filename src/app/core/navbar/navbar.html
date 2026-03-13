@@ -1,7 +1,20 @@
 <nav [class.scrolled]="isScrolled" [class.mobile-open]="isMobileMenuOpen">
   <div class="nav-container container">
     <div class="logo" (click)="scrollToSection('home')">
-      <img src="assets/images/logo.jpg" alt="Bashir Associates Logo" class="logo-img">
+      <div class="logo-icon">
+        <svg viewBox="0 0 100 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <!-- Building Blocks -->
+          <rect x="35" y="25" width="8" height="25" fill="#0A192F"/>
+          <rect x="45" y="15" width="10" height="35" fill="#0A192F"/>
+          <rect x="57" y="28" width="8" height="22" fill="#0A192F"/>
+          <!-- Red Arch -->
+          <path d="M10 50 C20 30, 80 30, 90 50" stroke="#B71C1C" stroke-width="3" stroke-linecap="round"/>
+        </svg>
+      </div>
+      <div class="logo-text">
+        <span class="main">BASHIR</span>
+        <span class="sub">ASSOCIATES</span>
+      </div>
     </div>
 
     <div class="nav-links" [class.active]="isMobileMenuOpen">

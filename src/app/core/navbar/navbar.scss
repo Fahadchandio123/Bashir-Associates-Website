@@ -25,15 +25,47 @@ nav {
   .logo {
     display: flex;
     align-items: center;
+    gap: 12px;
     cursor: pointer;
 
-    .logo-img {
-      height: 50px;
-      width: auto;
-      object-fit: contain;
+    .logo-icon {
+      width: 60px;
+      height: 40px;
+      
+      svg rect { fill: var(--color-white); } /* Adapt blocks to dark bg */
+      svg path { stroke: var(--color-gold); } /* Use red accent */
 
       @media (max-width: 768px) {
-        height: 40px;
+        width: 50px;
+        height: 35px;
+      }
+    }
+
+    .logo-text {
+      display: flex;
+      flex-direction: column;
+      line-height: 1;
+
+      .main {
+        font-family: var(--font-main);
+        font-weight: 800;
+        font-size: 1.4rem;
+        color: var(--color-white);
+        letter-spacing: 2px;
+      }
+
+      .sub {
+        font-family: var(--font-main);
+        font-weight: 500;
+        font-size: 0.7rem;
+        color: var(--color-gold);
+        letter-spacing: 4px;
+        margin-top: 2px;
+      }
+
+      @media (max-width: 768px) {
+        .main { font-size: 1.1rem; letter-spacing: 1px; }
+        .sub { font-size: 0.6rem; letter-spacing: 2px; }
       }
     }
   }

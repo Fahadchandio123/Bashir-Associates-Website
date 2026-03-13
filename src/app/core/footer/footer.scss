@@ -22,12 +22,38 @@
 
   .footer-brand {
     .logo {
-      margin-bottom: 20px;
-      
-      .footer-logo {
-        height: 60px;
-        width: auto;
-        object-fit: contain;
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      margin-bottom: 25px;
+
+      .logo-icon {
+        width: 70px;
+        height: 45px;
+        svg rect { fill: var(--color-white); }
+        svg path { stroke: var(--color-gold); }
+      }
+
+      .logo-text {
+        display: flex;
+        flex-direction: column;
+        line-height: 1;
+
+        .main {
+          font-family: var(--font-main);
+          font-weight: 800;
+          font-size: 1.6rem;
+          color: var(--color-white);
+          letter-spacing: 2px;
+        }
+
+        .sub {
+          font-family: var(--font-main);
+          font-weight: 500;
+          font-size: 0.8rem;
+          color: var(--color-gold);
+          letter-spacing: 4px;
+        }
       }
     }
 
