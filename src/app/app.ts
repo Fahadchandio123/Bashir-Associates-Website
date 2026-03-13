@@ -1,40 +1,29 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { RouterOutlet } from '@angular/router';
 import { Navbar } from './core/navbar/navbar';
 import { Footer } from './core/footer/footer';
-import { Hero } from './sections/hero/hero';
-import { About } from './sections/about/about';
-import { Portfolio } from './sections/portfolio/portfolio';
-import { Services } from './sections/services/services';
-import { Contact } from './sections/contact/contact';
 
 @Component({
   selector: 'app-root',
   standalone: true,
   imports: [
     CommonModule,
+    RouterOutlet,
     Navbar,
-    Footer,
-    Hero,
-    About,
-    Portfolio,
-    Services,
-    Contact
+    Footer
   ],
   template: `
     <app-navbar></app-navbar>
     <main>
-      <app-hero id="home"></app-hero>
-      <app-about id="about"></app-about>
-      <app-portfolio id="projects"></app-portfolio>
-      <app-services id="services"></app-services>
-      <app-contact id="contact"></app-contact>
+      <router-outlet></router-outlet>
     </main>
     <app-footer></app-footer>
   `,
   styles: [`
     main {
       width: 100%;
+      min-height: calc(100vh - 80px); /* Adjust based on navbar height */
     }
   `]
 })

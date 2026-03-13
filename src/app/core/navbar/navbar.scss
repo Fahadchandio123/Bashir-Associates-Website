@@ -59,7 +59,7 @@ nav {
         transition: var(--transition);
       }
 
-      &:hover {
+      &.active, &:hover {
         color: var(--color-gold);
         &::after {
           width: 100%;

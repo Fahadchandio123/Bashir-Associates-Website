@@ -6,11 +6,11 @@
     </div>
 
     <div class="nav-links" [class.active]="isMobileMenuOpen">
-      <a (click)="scrollToSection('home')">Home</a>
-      <a (click)="scrollToSection('about')">About</a>
-      <a (click)="scrollToSection('projects')">Projects</a>
-      <a (click)="scrollToSection('services')">Services</a>
-      <a (click)="scrollToSection('contact')" class="nav-cta">Get In Touch</a>
+      <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" (click)="isMobileMenuOpen = false">Home</a>
+      <a routerLink="/about" routerLinkActive="active" (click)="isMobileMenuOpen = false">About</a>
+      <a routerLink="/projects" routerLinkActive="active" (click)="isMobileMenuOpen = false">Projects</a>
+      <a routerLink="/services" routerLinkActive="active" (click)="isMobileMenuOpen = false">Services</a>
+      <a routerLink="/contact" routerLinkActive="active" class="nav-cta" (click)="isMobileMenuOpen = false">Get In Touch</a>
     </div>
 
     <div class="hamburger" (click)="toggleMobileMenu()">
