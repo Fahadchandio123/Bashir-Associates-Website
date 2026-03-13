@@ -23,16 +23,18 @@ nav {
   }
 
   .logo {
-    font-family: var(--font-heading);
-    font-size: 1.5rem;
-    font-weight: 700;
-    color: var(--color-white);
+    display: flex;
+    align-items: center;
     cursor: pointer;
-    letter-spacing: 2px;
 
-    .gold {
-      color: var(--color-gold);
-      margin-left: 5px;
+    .logo-img {
+      height: 50px;
+      width: auto;
+      object-fit: contain;
+
+      @media (max-width: 768px) {
+        height: 40px;
+      }
     }
   }
 
@@ -73,7 +75,7 @@ nav {
         color: var(--color-gold);
 
         &:hover {
-          background: rgba(197, 160, 89, 0.1);
+          background: rgba(183, 28, 28, 0.1);
         }
 
         &::after {

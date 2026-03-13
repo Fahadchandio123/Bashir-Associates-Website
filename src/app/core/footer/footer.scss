@@ -22,14 +22,13 @@
 
   .footer-brand {
     .logo {
-      font-family: var(--font-heading);
-      font-size: 1.8rem;
-      font-weight: 700;
-      color: var(--color-white);
       margin-bottom: 20px;
-      letter-spacing: 2px;
       
-      .gold { color: var(--color-gold); margin-left: 5px; }
+      .footer-logo {
+        height: 60px;
+        width: auto;
+        object-fit: contain;
+      }
     }
 
     p {

@@ -3,8 +3,8 @@
 :root {
   --color-navy: #0A192F;
   --color-navy-light: #112240;
-  --color-gold: #C5A059;
-  --color-gold-hover: #D4AF37;
+  --color-gold: #B71C1C;
+  --color-gold-hover: #D32F2F;
   --color-slate: #8892B0;
   --color-white: #E6F1FF;
   --color-glass: rgba(10, 25, 47, 0.7);
@@ -100,7 +100,7 @@ ul {
     border: 1px solid var(--color-gold);
     
     &:hover {
-      background-color: rgba(197, 160, 89, 0.1);
+      background-color: rgba(183, 28, 28, 0.1);
     }
   }
 }
