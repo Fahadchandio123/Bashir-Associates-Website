@@ -41,7 +41,7 @@ export class Portfolio {
     { id: 18, title: 'ZERO POINT (APARTMENTS)', category: 'residential', images: ['assets/images/p-res.png'] },
     { id: 19, title: 'THE DUPLEX CITY (DUPLEX APARTMENTS)', category: 'residential', images: ['assets/images/p-res.png'] },
     { id: 20, title: 'EMAAN SHOPPING MALL', category: 'commercial', images: ['assets/images/p-com.png'] },
-    { id: 21, title: 'CLUB VIEW DUPLEX APARTMENTS', category: 'residential', images: ['assets/images/p-res.png'] },
+    { id: 21, title: 'CLUB VIEW DUPLEX APARTMENTS', category: 'residential', images: ['assets/images/club-view-1.png'] },
     { id: 22, title: 'DENING LAW COLLEGE BYPASS HYDERABAD', category: 'commercial', images: [
       'assets/images/dening-1.png',
       'assets/images/dening-2.png',
