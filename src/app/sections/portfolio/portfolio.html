@@ -12,17 +12,45 @@
 
     <div class="portfolio-grid">
       @for (project of filteredProjects(); track project.id) {
-        <div class="project-card">
+        <div class="project-card" (click)="openGallery(project)">
           <div class="project-image">
-            <img [src]="project.image" [alt]="project.title">
+            <img [src]="project.images[0]" [alt]="project.title">
             <div class="project-overlay">
               <span class="category-tag">{{ project.category }}</span>
               <h3>{{ project.title }}</h3>
-              <button class="view-btn">View Details</button>
+              <button class="view-btn">View Gallery</button>
             </div>
           </div>
         </div>
       }
     </div>
   </div>
+
+  <!-- Gallery Modal -->
+  @if (selectedProject) {
+    <div class="gallery-modal" (click)="closeGallery()">
+      <div class="modal-content" (click)="$event.stopPropagation()">
+        <button class="close-btn" (click)="closeGallery()">&times;</button>
+        
+        <div class="slider-container">
+          @if (selectedProject.images.length > 1) {
+            <button class="nav-btn prev" (click)="prevImage($event)">&#10094;</button>
+          }
+          
+          <img [src]="selectedProject.images[currentImageIndex]" [alt]="selectedProject.title" class="main-image">
+          
+          @if (selectedProject.images.length > 1) {
+            <button class="nav-btn next" (click)="nextImage($event)">&#10095;</button>
+          }
+        </div>
+        
+        <div class="modal-info">
+          <h3>{{ selectedProject.title }}</h3>
+          <p class="image-counter" *ngIf="selectedProject.images.length > 1">
+            Image {{ currentImageIndex + 1 }} of {{ selectedProject.images.length }}
+          </p>
+        </div>
+      </div>
+    </div>
+  }
 </section>

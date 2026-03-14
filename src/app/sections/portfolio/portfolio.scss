@@ -56,6 +56,7 @@
   }
 
   .project-card {
+    /* ... existing nested styles ... */
     overflow: hidden;
     border-radius: 8px;
     position: relative;
@@ -127,6 +128,113 @@
 
       &:hover .project-overlay {
         opacity: 1;
+      }
+    }
+  }
+
+  /* Gallery Modal Styles */
+  .gallery-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(10, 25, 47, 0.95);
+    z-index: 1000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    backdrop-filter: blur(5px);
+
+    .modal-content {
+      position: relative;
+      max-width: 1000px;
+      width: 100%;
+      background: var(--color-navy);
+      border-radius: 12px;
+      padding: 20px;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+
+      .close-btn {
+        position: absolute;
+        top: -40px;
+        right: 0;
+        background: none;
+        border: none;
+        color: var(--color-white);
+        font-size: 2rem;
+        cursor: pointer;
+        transition: var(--transition);
+
+        &:hover {
+          color: var(--color-gold);
+        }
+      }
+
+      .slider-container {
+        position: relative;
+        width: 100%;
+        aspect-ratio: 16/9;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: #000;
+        border-radius: 8px;
+        overflow: hidden;
+
+        .main-image {
+          width: 100%;
+          height: 100%;
+          object-fit: contain;
+        }
+
+        .nav-btn {
+          position: absolute;
+          top: 50%;
+          transform: translateY(-50%);
+          background: rgba(10, 25, 47, 0.7);
+          color: var(--color-white);
+          border: 1px solid rgba(255, 255, 255, 0.2);
+          width: 50px;
+          height: 50px;
+          border-radius: 50%;
+          font-size: 1.5rem;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          cursor: pointer;
+          transition: var(--transition);
+
+          &:hover {
+            background: var(--color-gold);
+            color: var(--color-navy);
+            border-color: var(--color-gold);
+          }
+
+          &.prev { left: 20px; }
+          &.next { right: 20px; }
+        }
+      }
+
+      .modal-info {
+        margin-top: 20px;
+        text-align: left;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        h3 {
+          color: var(--color-white);
+          font-size: 1.5rem;
+          margin: 0;
+        }
+
+        .image-counter {
+          color: var(--color-slate);
+          font-size: 0.9rem;
+          margin: 0;
+        }
       }
     }
   }
