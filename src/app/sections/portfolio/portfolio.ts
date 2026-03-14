@@ -40,7 +40,7 @@ export class Portfolio {
     { id: 19, title: 'THE DUPLEX CITY (DUPLEX APARTMENTS)', category: 'residential', image: 'assets/images/p-res.png' },
     { id: 20, title: 'EMAAN SHOPPING MALL', category: 'commercial', image: 'assets/images/p-com.png' },
     { id: 21, title: 'CLUB VIEW DUPLEX APARTMENTS', category: 'residential', image: 'assets/images/p-res.png' },
-    { id: 22, title: 'DENING LAW COLLEGE BYPASS HYDERABAD', category: 'commercial', image: 'assets/images/p-com.png' },
+    { id: 22, title: 'DENING LAW COLLEGE BYPASS HYDERABAD', category: 'commercial', image: 'assets/images/dening-1.png' },
     { id: 23, title: 'AL JALIL SCHOOL BYPASS HYDERABAD', category: 'commercial', image: 'assets/images/p-com.png' }
   ];
 
