@@ -54,6 +54,14 @@ export class Portfolio {
       'assets/images/palm5-1.png',
       'assets/images/palm5-2.png',
       'assets/images/palm5-3.png'
+    ]},
+    { id: 25, title: 'ISRA VILLAGE', category: 'residential', images: [
+      'assets/images/isra-1.png',
+      'assets/images/isra-2.png',
+      'assets/images/isra-3.png',
+      'assets/images/isra-4.png',
+      'assets/images/isra-5.png',
+      'assets/images/isra-6.png'
     ]}
   ];
 
