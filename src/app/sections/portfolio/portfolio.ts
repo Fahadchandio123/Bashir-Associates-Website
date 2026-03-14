@@ -49,7 +49,12 @@ export class Portfolio {
       'assets/images/dening-4.png',
       'assets/images/dening-5.png'
     ]},
-    { id: 23, title: 'AL JALIL SCHOOL BYPASS HYDERABAD', category: 'commercial', images: ['assets/images/p-com.png'] }
+    { id: 23, title: 'AL JALIL SCHOOL BYPASS HYDERABAD', category: 'commercial', images: ['assets/images/p-com.png'] },
+    { id: 24, title: 'PALM 5 BOUNDARY WALL', category: 'residential', images: [
+      'assets/images/palm5-1.png',
+      'assets/images/palm5-2.png',
+      'assets/images/palm5-3.png'
+    ]}
   ];
 
   filteredProjects() {
