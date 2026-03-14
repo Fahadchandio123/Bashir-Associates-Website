@@ -39,7 +39,14 @@ export class Portfolio {
     { id: 16, title: 'POLL VILLA (BUNGALOWS)', category: 'residential', images: ['assets/images/p-res.png'] },
     { id: 17, title: 'C-470 BANGALOW', category: 'residential', images: ['assets/images/p-res.png'] },
     { id: 18, title: 'ZERO POINT (APARTMENTS)', category: 'residential', images: ['assets/images/p-res.png'] },
-    { id: 19, title: 'THE DUPLEX CITY (DUPLEX APARTMENTS)', category: 'residential', images: ['assets/images/p-res.png'] },
+    { id: 19, title: 'THE DUPLEX CITY (DUPLEX APARTMENTS)', category: 'residential', images: [
+      'assets/images/duplex-1.png',
+      'assets/images/duplex-2.png',
+      'assets/images/duplex-3.png',
+      'assets/images/duplex-4.png',
+      'assets/images/duplex-5.png',
+      'assets/images/duplex-6.png'
+    ]},
     { id: 20, title: 'EMAAN DUPLEX APARTMENT', category: 'residential', images: ['assets/images/eman-1.png'] },
     { id: 21, title: 'CLUB VIEW DUPLEX APARTMENTS', category: 'residential', images: ['assets/images/club-view-1.png'] },
     { id: 22, title: 'DENING LAW COLLEGE BYPASS HYDERABAD', category: 'commercial', images: [
