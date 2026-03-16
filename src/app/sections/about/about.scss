@@ -15,6 +15,42 @@
   }
 
   .about-text {
+    .leadership {
+      margin-bottom: 30px;
+      
+      h3 {
+        font-size: 0.9rem;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        color: var(--color-gold);
+        margin-bottom: 15px;
+      }
+
+      .owner-pill {
+        display: inline-flex;
+        flex-direction: column;
+        background: var(--color-navy-light);
+        padding: 15px 25px;
+        border-radius: 8px;
+        border-left: 3px solid var(--color-gold);
+        
+        .owner-name {
+          font-family: var(--font-heading);
+          font-size: 1.5rem;
+          font-weight: 700;
+          color: var(--color-white);
+        }
+        
+        .owner-title {
+          font-size: 0.8rem;
+          color: var(--color-slate);
+          text-transform: uppercase;
+          letter-spacing: 1px;
+          margin-top: 5px;
+        }
+      }
+    }
+
     h3 {
       font-size: 2rem;
       margin-bottom: 20px;

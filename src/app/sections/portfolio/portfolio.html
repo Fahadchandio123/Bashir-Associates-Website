@@ -11,7 +11,7 @@
     </div>
 
     <div class="portfolio-grid">
-      @for (project of filteredProjects(); track project.id) {
+      @for (project of filteredVisualProjects(); track project.id) {
         <div class="project-card" (click)="openGallery(project)">
           <div class="project-image">
             <img [src]="project.images[0]" [alt]="project.title">
@@ -23,6 +23,20 @@
           </div>
         </div>
       }
+    </div>
+
+    <!-- Notable Projects Text List -->
+    <div class="notable-projects-section" *ngIf="filteredNotableProjects().length > 0">
+      <h3 class="notable-title">Explore Other Notable Projects</h3>
+      <div class="notable-list">
+        @for (project of filteredNotableProjects(); track project.id) {
+          <div class="notable-item">
+            <span class="notable-dot"></span>
+            <span class="project-name">{{ project.title }}</span>
+            <span class="notable-category">({{ project.category }})</span>
+          </div>
+        }
+      </div>
     </div>
   </div>
 

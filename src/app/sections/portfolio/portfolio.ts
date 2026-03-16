@@ -72,6 +72,14 @@ export class Portfolio {
     ]}
   ];
 
+  filteredVisualProjects() {
+    return this.filteredProjects().filter(p => !p.images[0].includes('p-res.png') && !p.images[0].includes('p-com.png') && !p.images[0].includes('p-ong.png'));
+  }
+
+  filteredNotableProjects() {
+    return this.filteredProjects().filter(p => p.images[0].includes('p-res.png') || p.images[0].includes('p-com.png') || p.images[0].includes('p-ong.png'));
+  }
+
   filteredProjects() {
     if (this.activeFilter === 'all') return this.projects;
     return this.projects.filter(p => p.category === this.activeFilter);
