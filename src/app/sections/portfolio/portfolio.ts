@@ -94,54 +94,26 @@ export class Portfolio {
     this.activeFilter = filter;
   }
 
-  slideInterval: any;
-
   openGallery(project: Project) {
     this.selectedProject = project;
     this.currentImageIndex = 0;
-    document.body.style.overflow = 'hidden'; // Prevent background scrolling
-    this.startAutoSlide();
+    document.body.style.overflow = 'hidden';
   }
 
   closeGallery() {
     this.selectedProject = null;
     document.body.style.overflow = 'auto';
-    this.stopAutoSlide();
   }
 
   nextImage(event: Event) {
     event.stopPropagation();
     if (!this.selectedProject) return;
     this.currentImageIndex = (this.currentImageIndex + 1) % this.selectedProject.images.length;
-    this.resetAutoSlide();
   }
 
   prevImage(event: Event) {
     event.stopPropagation();
     if (!this.selectedProject) return;
     this.currentImageIndex = (this.currentImageIndex - 1 + this.selectedProject.images.length) % this.selectedProject.images.length;
-    this.resetAutoSlide();
-  }
-
-  startAutoSlide() {
-    if (this.selectedProject && this.selectedProject.images.length > 1) {
-      this.slideInterval = setInterval(() => {
-        if (this.selectedProject) {
-          this.currentImageIndex = (this.currentImageIndex + 1) % this.selectedProject.images.length;
-        }
-      }, 3000); // Change image every 3 seconds
-    }
-  }
-
-  stopAutoSlide() {
-    if (this.slideInterval) {
-      clearInterval(this.slideInterval);
-      this.slideInterval = null;
-    }
-  }
-
-  resetAutoSlide() {
-    this.stopAutoSlide();
-    this.startAutoSlide();
   }
 }
