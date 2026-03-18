@@ -69,6 +69,11 @@ export class Portfolio {
       'assets/images/isra-4.png',
       'assets/images/isra-5.png',
       'assets/images/isra-6.png'
+    ]},
+    { id: 26, title: 'BASHIR ASSOCIATES — BAHRIA TOWN KARACHI BRANCH', category: 'commercial', images: [
+      'assets/images/bahria-branch-1.jpg',
+      'assets/images/bahria-branch-2.jpg',
+      'assets/images/bahria-branch-3.jpg'
     ]}
   ];
 
