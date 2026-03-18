@@ -74,6 +74,13 @@ export class Portfolio {
       'assets/images/bahria-branch-1.jpg',
       'assets/images/bahria-branch-2.jpg',
       'assets/images/bahria-branch-3.jpg'
+    ]},
+    { id: 27, title: 'AL JALIL SCHOOL — SHEEDI GOTH BRANCH', category: 'commercial', images: [
+      'assets/images/jalil-sheedi-1.png',
+      'assets/images/jalil-sheedi-2.png',
+      'assets/images/jalil-sheedi-3.png',
+      'assets/images/jalil-sheedi-4.png',
+      'assets/images/jalil-sheedi-5.png'
     ]}
   ];
 
