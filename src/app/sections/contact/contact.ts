@@ -20,7 +20,7 @@ export class Contact {
       email: ['', [Validators.required, Validators.email]],
       phone: ['', [Validators.pattern('^[0-9+ ]*$')]],
       projectType: ['residential', Validators.required],
-      message: ['', [Validators.required, Validators.minLength(20)]]
+      message: ['', [Validators.required]]
     });
   }
 

@@ -70,7 +70,7 @@
             <label for="message">Message *</label>
             <textarea id="message" formControlName="message" rows="5" placeholder="Tell us about your project..."></textarea>
             @if (f['message'].touched && f['message'].invalid) {
-              <span class="error-msg">Message must be at least 20 characters.</span>
+              <span class="error-msg">Please enter a message.</span>
             }
           </div>
 
