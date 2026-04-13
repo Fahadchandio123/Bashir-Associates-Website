@@ -24,17 +24,33 @@ export class Contact {
     });
   }
 
+  private readonly WHATSAPP_NUMBER = '923403605493';
+
   onSubmit() {
     if (this.contactForm.valid) {
       this.isSubmitting = true;
-      // Simulate API call
+
+      const { name, email, phone, projectType, message } = this.contactForm.value;
+
+      const text =
+        `*New Project Inquiry — Bashir Associates*\n\n` +
+        `*Name:* ${name}\n` +
+        `*Email:* ${email}\n` +
+        (phone ? `*Phone:* ${phone}\n` : '') +
+        `*Project Type:* ${projectType}\n\n` +
+        `*Message:*\n${message}`;
+
+      const encoded = encodeURIComponent(text);
+      const waUrl = `https://wa.me/${this.WHATSAPP_NUMBER}?text=${encoded}`;
+
       setTimeout(() => {
         this.isSubmitting = false;
         this.submitSuccess = true;
         this.contactForm.reset({ projectType: 'residential' });
-        
+        window.open(waUrl, '_blank');
         setTimeout(() => this.submitSuccess = false, 5000);
-      }, 2000);
+      }, 800);
+
     } else {
       this.contactForm.markAllAsTouched();
     }
