@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { RouterOutlet } from '@angular/router';
 import { Navbar } from './core/navbar/navbar';
 import { Footer } from './core/footer/footer';
+import { Chatbot } from './core/chatbot/chatbot';
 
 @Component({
   selector: 'app-root',
@@ -11,7 +12,8 @@ import { Footer } from './core/footer/footer';
     CommonModule,
     RouterOutlet,
     Navbar,
-    Footer
+    Footer,
+    Chatbot
   ],
   template: `
     <app-navbar></app-navbar>
@@ -19,6 +21,9 @@ import { Footer } from './core/footer/footer';
       <router-outlet></router-outlet>
     </main>
     <app-footer></app-footer>
+
+    <!-- FAQ Chatbot -->
+    <app-chatbot></app-chatbot>
 
     <!-- WhatsApp Floating Button -->
     <a href="https://wa.me/923403605493" target="_blank" rel="noopener" class="whatsapp-float" aria-label="Chat on WhatsApp">
