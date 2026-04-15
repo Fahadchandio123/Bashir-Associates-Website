@@ -1,6 +1,7 @@
-import { Component, signal, computed } from '@angular/core';
+import { Component, signal, computed, ViewChild, ElementRef, AfterViewChecked, effect } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { trigger, transition, style, animate, query, stagger } from '@angular/animations';
 
 interface Message {
   text: string;
@@ -19,10 +20,34 @@ interface Faq {
   standalone: true,
   imports: [CommonModule, FormsModule],
   templateUrl: './chatbot.html',
-  styleUrl: './chatbot.scss'
+  styleUrl: './chatbot.scss',
+  animations: [
+    trigger('windowAnimation', [
+      transition(':enter', [
+        style({ opacity: 0, transform: 'translateY(30px) scale(0.95)' }),
+        animate('300ms cubic-bezier(0.175, 0.885, 0.32, 1.15)', style({ opacity: 1, transform: 'translateY(0) scale(1)' }))
+      ]),
+      transition(':leave', [
+        animate('250ms cubic-bezier(0.6, -0.28, 0.735, 0.045)', style({ opacity: 0, transform: 'translateY(30px) scale(0.95)' }))
+      ])
+    ]),
+    trigger('listAnimation', [
+      transition('* => *', [
+        query(':enter', [
+          style({ opacity: 0, transform: 'translateY(15px)' }),
+          stagger(50, [
+            animate('250ms ease-out', style({ opacity: 1, transform: 'translateY(0)' }))
+          ])
+        ], { optional: true })
+      ])
+    ])
+  ]
 })
 export class Chatbot {
+  @ViewChild('messageContainer') private messageContainer!: ElementRef;
+
   isOpen = signal(false);
+  isTyping = signal(false);
   userInput = '';
   messages = signal<Message[]>([
     {
@@ -51,7 +76,7 @@ export class Chatbot {
     {
       keywords: ['experience', 'years', 'old', 'since', 'long', 'established'],
       question: 'How long have you been in business?',
-      answer: '🏛️ Bashir Associates has been building trust since 2001 — over 25 years of architectural excellence in Hyderabad and beyond.'
+      answer: '🏛️ Bashir Associates has been building trust since 2001 — over over 25 years of architectural excellence in Hyderabad and beyond.'
     },
     {
       keywords: ['project', 'completed', 'portfolio', 'work', 'done', 'built'],
@@ -85,6 +110,15 @@ export class Chatbot {
     }
   ];
 
+  constructor() {
+    // Auto-scroll when messages update or window opens
+    effect(() => {
+      if (this.messages() || this.isOpen()) {
+        setTimeout(() => this.scrollToBottom(), 100);
+      }
+    });
+  }
+
   readonly suggestions = this.faqs.map(f => f.question);
 
   toggle() {
@@ -98,18 +132,22 @@ export class Chatbot {
     this.addMessage(input, true);
     this.userInput = '';
 
+    this.isTyping.set(true);
     setTimeout(() => {
       const answer = this.findAnswer(input);
+      this.isTyping.set(false);
       this.addMessage(answer, false);
-    }, 600);
+    }, 1200); // Slightly longer for realistic feel
   }
 
   selectSuggestion(question: string) {
     this.addMessage(question, true);
+    this.isTyping.set(true);
     setTimeout(() => {
       const answer = this.findAnswer(question);
+      this.isTyping.set(false);
       this.addMessage(answer, false);
-    }, 600);
+    }, 1000);
   }
 
   private findAnswer(input: string): string {
@@ -128,6 +166,13 @@ export class Chatbot {
 
   private getTime(): string {
     return new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+  }
+
+  private scrollToBottom() {
+    if (this.messageContainer) {
+      const el = this.messageContainer.nativeElement;
+      el.scrollTop = el.scrollHeight;
+    }
   }
 
   onKeydown(event: KeyboardEvent) {

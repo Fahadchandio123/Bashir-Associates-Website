@@ -16,7 +16,7 @@
 
 <!-- Chat Window -->
 @if (isOpen()) {
-  <div class="chat-window">
+  <div class="chat-window" @windowAnimation>
     <!-- Header -->
     <div class="chat-header">
       <div class="header-avatar">🏗️</div>
@@ -28,7 +28,7 @@
     </div>
 
     <!-- Messages -->
-    <div class="chat-messages">
+    <div class="chat-messages" #messageContainer [@listAnimation]="messages().length">
       @for (msg of messages(); track $index) {
         <div class="message" [class.user]="msg.isUser" [class.bot]="!msg.isUser">
           @if (!msg.isUser) {
@@ -37,6 +37,20 @@
           <div class="bubble">
             <p [innerHTML]="msg.text.replace('\n', '<br>')"></p>
             <span class="time">{{ msg.time }}</span>
+          </div>
+        </div>
+      }
+
+      <!-- Typing Indicator -->
+      @if (isTyping()) {
+        <div class="message bot typing-message">
+          <div class="bot-avatar">🏗️</div>
+          <div class="bubble typing-bubble">
+            <div class="typing-indicator">
+              <span></span>
+              <span></span>
+              <span></span>
+            </div>
           </div>
         </div>
       }
@@ -61,7 +75,7 @@
         placeholder="Type your question..."
         maxlength="300"
       />
-      <button class="send-btn" (click)="send()">
+      <button class="send-btn" (click)="send()" [disabled]="!userInput.trim() || isTyping()">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="18" height="18">
           <path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/>
         </svg>
