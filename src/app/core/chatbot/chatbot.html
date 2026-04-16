@@ -16,7 +16,7 @@
 
 <!-- Chat Window -->
 @if (isOpen()) {
-  <div class="chat-window" @windowAnimation>
+  <div class="chat-window" [class.show]="isVisible()">
     <!-- Header -->
     <div class="chat-header">
       <div class="header-avatar">🏗️</div>
@@ -28,7 +28,7 @@
     </div>
 
     <!-- Messages -->
-    <div class="chat-messages" #messageContainer [@listAnimation]="messages().length">
+    <div class="chat-messages" #messageContainer>
       @for (msg of messages(); track $index) {
         <div class="message" [class.user]="msg.isUser" [class.bot]="!msg.isUser">
           @if (!msg.isUser) {
