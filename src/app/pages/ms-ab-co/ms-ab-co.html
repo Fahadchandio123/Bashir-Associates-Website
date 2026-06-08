@@ -1,29 +1,182 @@
-<section class="ms-ab-co-section">
-  <div class="container">
-    <div class="section-header">
-      <span class="subtitle">Documents & Resources</span>
-      <h2>MS AB & CO</h2>
-      <p>Download our comprehensive guides, specifications, and related documentation.</p>
-    </div>
+<div class="ms-ab-co-page">
 
-    <div class="docs-grid">
-      @for (doc of documents; track $index) {
-        <div class="doc-card">
-          <div class="doc-icon">{{ doc.icon }}</div>
-          <div class="doc-info">
-            <h3>{{ doc.title }}</h3>
-            <p>{{ doc.description }}</p>
+  <!-- ── Hero ─────────────────────────────────────── -->
+  <section class="profile-hero">
+    <div class="hero-bg-glow"></div>
+    <div class="container">
+      <div class="hero-grid">
+        <div class="hero-copy">
+          <span class="eyebrow">Government Contractor · Civil & Mechanical Works</span>
+          <h1>MS AB <span class="accent">&</span> CO</h1>
+          <p class="hero-tagline">
+            Engineering. Construction. Project Management.<br>
+            Serving Pakistan's public infrastructure since day one.
+          </p>
+          <p class="hero-body">
+            AB & Co is a registered government contractor specialising in civil, mechanical and
+            electrical works for municipal authorities, industrial facilities and commercial
+            developments across Sindh. Our firm is PEC-licenced (C4), Sindh Sales Tax registered
+            and backed by a fleet of heavy machinery and a team of experienced engineers.
+          </p>
+          <div class="hero-actions">
+            <a class="btn-primary" href="#projects-section">View Projects</a>
+            <button class="btn-outline"
+              (click)="downloadFile('assets/docs/MS AB & CO Work.pdf','MS AB & CO Work.pdf')">
+              Download Profile
+            </button>
           </div>
-          <button class="download-btn" (click)="downloadFile(doc.path, doc.filename)">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="20" height="20">
-              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
-              <polyline points="7 10 12 15 17 10"></polyline>
-              <line x1="12" y1="15" x2="12" y2="3"></line>
-            </svg>
-            Download PDF
-          </button>
+        </div>
+
+        <div class="hero-panel">
+          <div class="panel-logo">AB</div>
+          <div class="panel-divider"></div>
+          <ul class="panel-badges">
+            <li>PEC Licence C4 · No. 4248</li>
+            <li>31 Specialization Codes</li>
+            <li>PKR 200 M Cost Limit</li>
+            <li>Sindh Sales Tax Registered</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Stats Band ─────────────────────────────────── -->
+  <section class="stats-band">
+    <div class="container stats-grid">
+      @for (stat of stats; track stat.label) {
+        <div class="stat-item">
+          <strong>{{ stat.value }}</strong>
+          <span>{{ stat.label }}</span>
         </div>
       }
     </div>
-  </div>
-</section>
+  </section>
+
+  <!-- ── Vision & Mission ───────────────────────────── -->
+  <section class="vm-section section">
+    <div class="container vm-grid">
+      <div class="vm-card vision">
+        <span class="vm-label">Our Vision</span>
+        <p>
+          To be the leading construction firm in Pakistan, renowned for quality and timely
+          project delivery through developing talent, building leaders, and nurturing growth.
+        </p>
+      </div>
+      <div class="vm-card mission">
+        <span class="vm-label">Our Mission</span>
+        <p>
+          To deliver high quality construction solutions that exceed client expectations with
+          excellence in every project — <em>I am assured.</em>
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Core Capabilities ─────────────────────────── -->
+  <section class="capabilities-section section">
+    <div class="container">
+      <div class="section-heading">
+        <span class="eyebrow">Scope of Work</span>
+        <h2>Core Capabilities</h2>
+        <p>
+          Our PEC C4 specialization record covers a comprehensive mix of civil, mechanical,
+          electrical and renewable-energy disciplines.
+        </p>
+      </div>
+      <div class="capability-grid">
+        @for (cap of capabilities; track cap.title) {
+          <article class="capability-card">
+            <div class="cap-icon">{{ cap.icon }}</div>
+            <h3>{{ cap.title }}</h3>
+            <p>{{ cap.description }}</p>
+          </article>
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Credentials ───────────────────────────────── -->
+  <section class="creds-section section">
+    <div class="container creds-grid">
+      <div class="section-copy">
+        <span class="eyebrow">Registrations</span>
+        <h2>Credentials &amp; Licences</h2>
+        <p>
+          AB & Co maintains current registration with all major regulatory bodies, ensuring
+          full legal compliance for public-sector and government project eligibility.
+        </p>
+      </div>
+      <ul class="creds-list">
+        @for (item of credentials; track item) {
+          <li>
+            <span class="check">✔</span>
+            {{ item }}
+          </li>
+        }
+      </ul>
+    </div>
+  </section>
+
+  <!-- ── Projects ──────────────────────────────────── -->
+  <section class="projects-section section" id="projects-section">
+    <div class="container">
+      <div class="section-heading">
+        <span class="eyebrow">Documented Work Orders</span>
+        <h2>Selected Municipal Projects</h2>
+        <p>
+          Provisional work orders issued by the Karachi Water &amp; Sewerage Board demonstrate
+          AB &amp; Co's trusted track record in large-scale public infrastructure maintenance.
+        </p>
+      </div>
+      <div class="projects-list">
+        @for (project of projects; track project.title; let i = $index) {
+          <article class="project-row">
+            <div class="proj-num">{{ (i + 1).toString().padStart(2, '0') }}</div>
+            <div class="proj-body">
+              <span class="proj-client">{{ project.client }}</span>
+              <h3>{{ project.title }}</h3>
+              <p>{{ project.scope }}</p>
+            </div>
+            <div class="proj-meta">{{ project.meta }}</div>
+          </article>
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Documents ─────────────────────────────────── -->
+  <section class="documents-section section">
+    <div class="container">
+      <div class="section-heading">
+        <span class="eyebrow">Resources</span>
+        <h2>Download Documents</h2>
+        <p>Access the full company profile and supporting documentation for project reference.</p>
+      </div>
+      <div class="docs-grid">
+        @for (doc of documents; track doc.filename) {
+          <article class="doc-card">
+            <div class="doc-icon">📄</div>
+            <div class="doc-body">
+              <span class="doc-type">{{ doc.type }}</span>
+              <h3>{{ doc.title }}</h3>
+              <p>{{ doc.description }}</p>
+            </div>
+            <button type="button" class="download-btn"
+              (click)="downloadFile(doc.path, doc.filename)">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                stroke-linejoin="round" width="16" height="16">
+                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                <polyline points="7 10 12 15 17 10"></polyline>
+                <line x1="12" y1="15" x2="12" y2="3"></line>
+              </svg>
+              Download PDF
+            </button>
+          </article>
+        }
+      </div>
+    </div>
+  </section>
+
+</div>
