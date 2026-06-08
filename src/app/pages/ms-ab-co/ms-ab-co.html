@@ -1,0 +1,29 @@
+<section class="ms-ab-co-section">
+  <div class="container">
+    <div class="section-header">
+      <span class="subtitle">Documents & Resources</span>
+      <h2>MS AB & CO</h2>
+      <p>Download our comprehensive guides, specifications, and related documentation.</p>
+    </div>
+
+    <div class="docs-grid">
+      @for (doc of documents; track $index) {
+        <div class="doc-card">
+          <div class="doc-icon">{{ doc.icon }}</div>
+          <div class="doc-info">
+            <h3>{{ doc.title }}</h3>
+            <p>{{ doc.description }}</p>
+          </div>
+          <button class="download-btn" (click)="downloadFile(doc.path, doc.filename)">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="20" height="20">
+              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+              <polyline points="7 10 12 15 17 10"></polyline>
+              <line x1="12" y1="15" x2="12" y2="3"></line>
+            </svg>
+            Download PDF
+          </button>
+        </div>
+      }
+    </div>
+  </div>
+</section>
